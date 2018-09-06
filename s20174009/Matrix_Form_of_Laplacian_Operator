@@ -1,0 +1,52 @@
+Matlab Code
+
+i.	N=5 
+
+A = [ -2 1 0 ; 1 -2 1 ; 0 1 -2];
+[V,D] = eig(A)
+
+%-->	D = -3.4142, -2.0000 and -0.5858
+
+
+ii.	N=50
+
+% When N is 50
+N= 50;
+ 
+A = zeros(N-2,N-2) ;
+ 
+% First and last line of Laplacian operator
+A(1,1) = -2.0 , A(1,2) = 1.0 ;
+A(N-2,N-3) = 1.0 , A(N-2,N-2) = -2.0 ;
+ 
+% The other line
+for ii = 2:N-3
+    A(ii,ii-1) = 1.0, A(ii,ii) = -2.0, A(ii,ii+1) = 1.0 ;
+end
+ 
+[V,D] = eig (A);
+
+%-->	D = -3.9959 ~ -0.0041
+
+
+iii.	N=500
+
+% When N is 500
+N= 500;
+ 
+A = zeros(N-2,N-2) ;
+ 
+% First and last line of Laplacian operator
+A(1,1) = -2.0 , A(1,2) = 1.0 ;
+A(N-2,N-3) = 1.0 , A(N-2,N-2) = -2.0 ;
+ 
+% The other line
+for ii = 2:N-3
+    A(ii,ii-1) = 1.0, A(ii,ii) = -2.0, A(ii,ii+1) = 1.0 ;
+end
+ 
+[V,D] = eig (A);
+
+%--> D = -4.0000 ~ -3.96366753590425e-05
+
+
